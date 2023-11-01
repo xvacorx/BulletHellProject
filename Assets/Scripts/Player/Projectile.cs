@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed;
 
@@ -17,7 +19,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectile")){ }
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectile")) { }
         else { Destroy(gameObject); }
     }
 }

@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class PlayerSeeking : MonoBehaviour
 {
-    private float movementSpeed = 5f;
-    private GameObject player;
-    private float rotationSpeed = 180f; // Velocidad de rotación.
+    private Transform player;
+    [SerializeField] float speed = 2.5f;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
     {
-        // Calcula la dirección hacia el jugador.
-        Vector2 direction = (player.transform.position - transform.position).normalized;
+        Vector3 playerPosition = player.position;
+        Vector3 direction = playerPosition - transform.position;
+        direction.z = 0;
 
-        // Calcula el ángulo hacia el jugador.
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        // Normaliza la dirección para obtener una unidad de dirección
+        direction.Normalize();
 
-        // Rota gradualmente hacia el ángulo del jugador.
-        float step = rotationSpeed * Time.deltaTime;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), step);
+        // Mueve al enemigo hacia el jugador
+        transform.position += direction * speed * Time.deltaTime;
 
-        // Mueve al enemigo hacia el jugador de frente.
-        transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
+        // Alinea la rotación del enemigo con la dirección del jugador (opcional)
+        transform.up = direction;
     }
 }

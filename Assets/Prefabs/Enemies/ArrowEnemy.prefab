@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6490158769425682716}
   - component: {fileID: 7555997854097194004}
   - component: {fileID: -2802442493738189585}
+  - component: {fileID: -1146641641082809772}
   m_Layer: 0
   m_Name: ArrowEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2ee75b21a12dc4fa6d0d8592d5a091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2.5
 --- !u!60 &-2802442493738189585
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -157,3 +159,16 @@ PolygonCollider2D:
       - {x: -0.13, y: -0.17}
       - {x: 0, y: 0.01}
       - {x: 0.02, y: -0.03}
+--- !u!114 &-1146641641082809772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331363389296201561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e13f10dd698c88438f40534731b46be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLife: {fileID: -8947370492488677710, guid: 53f44b69346a7cf42bfa0c58546fb561, type: 3}

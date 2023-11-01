@@ -7,7 +7,7 @@ public class PlayerShooting : MonoBehaviour
     public Transform firePoint;
     public GameObject projectilePrefab;
 
-    public float fireRate = 1.0f;
+    public float fireRate = 1f;
 
     float nextFireTime;
 
@@ -29,5 +29,9 @@ public class PlayerShooting : MonoBehaviour
     void Shoot()
     {
         Instantiate(projectilePrefab, firePoint.position, transform.rotation);
+    }
+    public void AttackSpeedIncrease(float increase)
+    {
+        fireRate = fireRate * increase;
     }
 }
