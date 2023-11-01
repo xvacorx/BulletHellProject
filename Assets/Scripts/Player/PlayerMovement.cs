@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float movementSpeed = 300f;
+    float movementSpeed = 500f;
     private Rigidbody2D rb;
     private void Awake()
     {
