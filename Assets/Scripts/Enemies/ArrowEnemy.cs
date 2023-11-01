@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class ArrowEnemy : MonoBehaviour
 {
-    public StatsManager playerLife;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Projectile"))
-        {
-            Destroy(gameObject);
-        }
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.TryGetComponent(out StatsManager playerLife))
         {
             playerLife.LoseHealth(1);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Projectile"))
+        {
             Destroy(gameObject);
         }
     }
