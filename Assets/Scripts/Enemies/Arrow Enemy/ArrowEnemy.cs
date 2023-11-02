@@ -11,9 +11,5 @@ public class ArrowEnemy : MonoBehaviour
             playerLife.LoseHealth(1);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.CompareTag("Projectile"))
-        {
-            Destroy(gameObject);
-        }
     }
 }

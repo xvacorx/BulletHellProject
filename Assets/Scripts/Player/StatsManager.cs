@@ -34,6 +34,6 @@ public class StatsManager : MonoBehaviour
 
     public void AddAttackSpeed(float speed)
     {
-        shooting.fireRate *= speed;
+        shooting.fireRate += speed;
     } //Aumentar velocidad de ataque
 }

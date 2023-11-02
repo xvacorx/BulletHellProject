@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 7555997854097194004}
   - component: {fileID: -2802442493738189585}
   - component: {fileID: -1146641641082809772}
-  m_Layer: 0
+  - component: {fileID: 2035400392897897607}
+  - component: {fileID: 5009433802369377055}
+  m_Layer: 12
   m_Name: ArrowEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -171,4 +173,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e13f10dd698c88438f40534731b46be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLife: {fileID: -8947370492488677710, guid: 53f44b69346a7cf42bfa0c58546fb561, type: 3}
+--- !u!114 &2035400392897897607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331363389296201561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55d5e3818b566448b6f5f942ee5aed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1
+--- !u!114 &5009433802369377055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331363389296201561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f8a32c11c99834da383ef57ce15aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpPrefabs:
+  - {fileID: 4465405071857424617, guid: b7ef8d162704f474ebe08c80df102498, type: 3}
+  - {fileID: 3414291563048356909, guid: 6e402411cfe383a42a04ee74f02bf460, type: 3}
+  dropProbability: 0.05

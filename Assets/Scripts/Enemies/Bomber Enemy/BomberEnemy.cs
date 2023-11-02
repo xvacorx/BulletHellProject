@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooterEnemy : MonoBehaviour
+public class BomberEnemy : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject projectilePrefab;
+
+    public float speed = 2.0f;
+    private Rigidbody2D rb;
 
     float fireRate = 0.25f;
 
     float nextFireTime;
 
-    private Transform player;
+    void Start()
+    {
+        rb = GetComponent <Rigidbody2D>();
 
+        Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        randomDirection.Normalize();
+
+        rb.velocity = randomDirection * speed;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out StatsManager playerLife))
@@ -20,27 +30,14 @@ public class ShooterEnemy : MonoBehaviour
             playerLife.LoseHealth(1);
         }
     } //Daño a jugador
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
     private void Update()
     {
-        Vector3 playerPosition = player.position;
-
-        Vector2 shootDirection = (playerPosition - transform.position).normalized;
-
-        transform.up = shootDirection;
-
         if (Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + 1f / fireRate; // Establece el tiempo del próximo disparo.
         }
     }
-
     void Shoot()
     {
         Instantiate(projectilePrefab, firePoint.position, transform.rotation);
