@@ -5,6 +5,7 @@ using UnityEngine;
 public class StatsManager : MonoBehaviour
 {
     [SerializeField] PlayerShooting shooting;
+    [SerializeField] GameController gameController;
 
     int hp;
 
@@ -15,11 +16,11 @@ public class StatsManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(hp);
+        //Debug.Log(hp);
         if (hp <= 0)
         {
             Destroy(gameObject);
-            Time.timeScale = 0f;
+            gameController.GameOver();
         }
     }
     public void AddHealth(int health)

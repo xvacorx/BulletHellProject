@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject gameOverScreen;
+
+    private void Start()
     {
-        
+        Time.timeScale = 1.0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GameOver()
     {
-        
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

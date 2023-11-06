@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 5549203253352024231}
   - component: {fileID: 5549203253352024224}
   - component: {fileID: 6071605950144501278}
-  m_Layer: 0
+  - component: {fileID: 6971356840605833730}
+  m_Layer: 12
   m_Name: BomberEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -185,3 +186,24 @@ MonoBehaviour:
   - {fileID: 4465405071857424617, guid: b7ef8d162704f474ebe08c80df102498, type: 3}
   - {fileID: 3414291563048356909, guid: 6e402411cfe383a42a04ee74f02bf460, type: 3}
   dropProbability: 0.3
+--- !u!95 &6971356840605833730
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5549203253352024225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39bbf1bac4923744db32628d2cd01e07, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

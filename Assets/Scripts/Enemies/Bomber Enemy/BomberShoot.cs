@@ -21,9 +21,5 @@ public class BomberShoot : MonoBehaviour
             playerLife.LoseHealth(1);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.CompareTag("Terrain"))
-        {
-            Destroy(gameObject);
-        }
     }
 }

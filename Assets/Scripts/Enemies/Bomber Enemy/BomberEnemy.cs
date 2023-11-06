@@ -14,6 +14,8 @@ public class BomberEnemy : MonoBehaviour
 
     float nextFireTime;
 
+    private float minX, maxX, minY, maxY;
+
     void Start()
     {
         rb = GetComponent <Rigidbody2D>();
@@ -22,6 +24,8 @@ public class BomberEnemy : MonoBehaviour
         randomDirection.Normalize();
 
         rb.velocity = randomDirection * speed;
+
+        CalculateScreenBounds();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -41,5 +45,25 @@ public class BomberEnemy : MonoBehaviour
     void Shoot()
     {
         Instantiate(projectilePrefab, firePoint.position, transform.rotation);
+    }
+    private void CalculateScreenBounds()
+    {
+        Camera mainCamera = Camera.main;
+        Vector3 lowerLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        Vector3 upperRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, 0));
+
+        minX = lowerLeft.x;
+        maxX = upperRight.x;
+        minY = lowerLeft.y;
+        maxY = upperRight.y;
+    }
+    private void LateUpdate()
+    {
+        Vector3 currentPosition = transform.position;
+
+        currentPosition.x = Mathf.Clamp(currentPosition.x, minX, maxX);
+        currentPosition.y = Mathf.Clamp(currentPosition.y, minY, maxY);
+
+        transform.position = currentPosition;
     }
 }
