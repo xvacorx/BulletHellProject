@@ -6,12 +6,13 @@ public class StatsManager : MonoBehaviour
 {
     [SerializeField] PlayerShooting shooting;
     [SerializeField] GameController gameController;
+    [SerializeField] Lives life;
 
     int hp;
 
     private void Awake()
     {
-        hp = 10;
+        hp = 5;
     }
 
     private void Update()
@@ -19,18 +20,19 @@ public class StatsManager : MonoBehaviour
         //Debug.Log(hp);
         if (hp <= 0)
         {
-            Destroy(gameObject);
             gameController.GameOver();
         }
     }
     public void AddHealth(int health)
     {
         hp += health;
+        life.AddLife(health);
     } //Recuperar vida
 
     public void LoseHealth(int health)
     {
         hp -= health;
+        life.LoseLife(health);
     } //Perder vida
 
     public void AddAttackSpeed(float speed)
