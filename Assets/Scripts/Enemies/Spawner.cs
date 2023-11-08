@@ -14,13 +14,13 @@ public class Spawner : MonoBehaviour
 
     bool spawnerActive = true;
 
-    float delay = 10f;
+    float delay;
 
     private void Start()
     {
         spawnerActive = true;
 
-        delay = 10;
+        delay = 10f;
         StartCoroutine(timer());
     }
     private IEnumerator timer()
@@ -55,20 +55,20 @@ public class Spawner : MonoBehaviour
         switch (mobToSpawn)
         {
             case 0:
-                randomQuantity = Random.Range(1, 3);
+                randomQuantity = Random.Range(2, 3);
                 for (int i = 0; i < randomQuantity; i++)
                 {
                     int randomPosition = Random.Range(0, arrowPositions.Length);
                     Instantiate(enemyPrefabs[mobToSpawn], arrowPositions[randomPosition], Quaternion.identity);
-                }
+                } //Arrow Enemy
                 break;
             case 1:
-                randomQuantity = Random.Range(1, 3);
+                randomQuantity = Random.Range(1, 2);
                 for (int i = 0; i < randomQuantity; i++)
                 {
                     int randomPosition = Random.Range(0, tankPositions.Length);
                     Instantiate(enemyPrefabs[mobToSpawn], tankPositions[randomPosition], Quaternion.identity);
-                }
+                } //Tank Enemy
                 break;
             case 2:
                 randomQuantity = Random.Range(1, 3);
@@ -76,7 +76,7 @@ public class Spawner : MonoBehaviour
                 {
                     int randomPosition = Random.Range(0, shooterPositions.Length);
                     Instantiate(enemyPrefabs[mobToSpawn], shooterPositions[randomPosition], Quaternion.identity);
-                }
+                } //Shooter Enemy
                 break;
             case 3:
                 randomQuantity = Random.Range(1, 3);
@@ -84,7 +84,7 @@ public class Spawner : MonoBehaviour
                 {
                     int randomPosition = Random.Range(0, bomberPositions.Length);
                     Instantiate(enemyPrefabs[mobToSpawn], bomberPositions[randomPosition], Quaternion.identity);
-                }
+                } //Bomber Enemy
                 break;
         }
     }

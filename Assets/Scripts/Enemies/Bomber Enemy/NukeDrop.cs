@@ -1,10 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpDrop : MonoBehaviour
+public class NukeDrop : MonoBehaviour
 {
     PowerUpManager powerUpManager;
 
-    public float dropProbability = 0.2f;
+    public float dropProbability = 0.5f;
 
     void Start()
     {
@@ -15,7 +17,7 @@ public class PowerUpDrop : MonoBehaviour
     {
         if (Random.value < dropProbability)
         {
-            powerUpManager.SpawnRandomPowerUp(transform.position);
+            powerUpManager.SpawnNuke(transform.position);
         }
     }
 }

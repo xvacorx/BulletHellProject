@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
+  scoreValue: 10
 --- !u!114 &5009433802369377055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +199,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f8a32c11c99834da383ef57ce15aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpPrefabs:
-  - {fileID: 4465405071857424617, guid: b7ef8d162704f474ebe08c80df102498, type: 3}
-  - {fileID: 3414291563048356909, guid: 6e402411cfe383a42a04ee74f02bf460, type: 3}
-  dropProbability: 0.05
+  dropProbability: 0.1

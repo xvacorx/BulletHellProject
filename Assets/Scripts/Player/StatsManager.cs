@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatsManager : MonoBehaviour
 {
     [SerializeField] PlayerShooting shooting;
-    [SerializeField] GameController gameController;
+    [SerializeField] GameManager gameController;
     [SerializeField] Lives life;
 
     int hp;
