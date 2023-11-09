@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        int mobToSpawn = Random.Range(0, enemyPrefabs.Length);
+        int mobToSpawn = 3; //Random.Range(0, enemyPrefabs.Length);
 
         switch (mobToSpawn)
         {

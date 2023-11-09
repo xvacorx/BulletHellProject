@@ -9,24 +9,40 @@ public class BomberEnemy : MonoBehaviour
 
     public float speed = 2.0f;
     private Rigidbody2D rb;
-
+    private SpriteRenderer sprite;
     float fireRate = 0.25f;
 
     float nextFireTime;
 
     private float minX, maxX, minY, maxY;
 
+    public GameObject spawnPrefab;
+
+    private void Awake()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
-        rb = GetComponent <Rigidbody2D>();
+        CalculateScreenBounds();
+        StartCoroutine(SpawnAnimation());
+        StartCoroutine(Shoot());
+    }
+
+    IEnumerator SpawnAnimation()
+    {
+        Instantiate(spawnPrefab, rb.position, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        sprite.enabled = true;
+        yield return new WaitForSeconds(1f);
 
         Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         randomDirection.Normalize();
 
         rb.velocity = randomDirection * speed;
-
-        CalculateScreenBounds();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out StatsManager playerLife))
@@ -34,17 +50,21 @@ public class BomberEnemy : MonoBehaviour
             playerLife.LoseHealth(1);
         }
     } //Daño a jugador
-    private void Update()
+    //private void Update()
+    //{
+    //    if (Time.time >= nextFireTime)
+    //    {
+    //        Shoot();
+    //        nextFireTime = Time.time + 1f / fireRate; // Establece el tiempo del próximo disparo.
+    //    }
+    //}
+    IEnumerator Shoot()
     {
-        if (Time.time >= nextFireTime)
+        while (true)
         {
-            Shoot();
-            nextFireTime = Time.time + 1f / fireRate; // Establece el tiempo del próximo disparo.
+            yield return new WaitForSeconds(3);
+            Instantiate(projectilePrefab, firePoint.position, transform.rotation);
         }
-    }
-    void Shoot()
-    {
-        Instantiate(projectilePrefab, firePoint.position, transform.rotation);
     }
     private void CalculateScreenBounds()
     {
