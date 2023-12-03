@@ -35,7 +35,7 @@ public class BomberEnemy : MonoBehaviour
         Instantiate(spawnPrefab, rb.position, Quaternion.identity);
         yield return new WaitForSeconds(1f);
         sprite.enabled = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         randomDirection.Normalize();

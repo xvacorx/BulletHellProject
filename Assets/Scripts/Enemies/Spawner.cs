@@ -49,8 +49,8 @@ public class Spawner : MonoBehaviour
     } //Aumentar tiempo de spawn
 
     void Spawn()
-    {
-        int mobToSpawn = 3; //Random.Range(0, enemyPrefabs.Length);
+    {   
+        int mobToSpawn =  Random.Range(0, enemyPrefabs.Length);
 
         switch (mobToSpawn)
         {
