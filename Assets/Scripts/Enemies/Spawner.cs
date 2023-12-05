@@ -12,18 +12,11 @@ public class Spawner : MonoBehaviour
 
     int randomQuantity;
 
-    bool spawnerActive = true;
+    public bool spawnerActive = false;
 
-    float delay;
+    float delay = 10;
 
-    private void Start()
-    {
-        spawnerActive = true;
-
-        delay = 10f;
-        StartCoroutine(timer());
-    }
-    private IEnumerator timer()
+    public IEnumerator timer()
     {
         while (spawnerActive)
         {
