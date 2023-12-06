@@ -22,7 +22,7 @@ public class Nuke : MonoBehaviour
 
         direction.Normalize();
 
-        // Mueve al enemigo hacia el jugador
+        // Mueve al objeto lejos de el jugador
         transform.position += -direction * speed * Time.deltaTime;
     }
     void OnTriggerEnter2D(Collider2D other)
