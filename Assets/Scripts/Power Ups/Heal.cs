@@ -6,6 +6,8 @@ public class Heal : MonoBehaviour
 {
     public float speed = 0.25f;
     private Rigidbody2D rb;
+    public AudioClip explosionSound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,7 +22,20 @@ public class Heal : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out StatsManager playerLife))
         {
             playerLife.AddHealth(1);
-            Destroy(gameObject);
+
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+
+            if (explosionSound != null)
+            {
+                AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            }
+            StartCoroutine(DestroyAfterSound());
         }
+    }
+    IEnumerator DestroyAfterSound()
+    {
+        yield return new WaitForSeconds(explosionSound.length);
+        Destroy(gameObject);
     }
 }
