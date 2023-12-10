@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyLife : MonoBehaviour
 {
+    public GameObject explotion;
     public int hp = 1;
     public int scoreValue = 10;
     Score score;
@@ -18,6 +20,7 @@ public class EnemyLife : MonoBehaviour
         if (hp <= 0)
         {
             Destroy(gameObject);
+            Instantiate(explotion, transform.position, Quaternion.identity);
         }
     }
     void OnDestroy()
