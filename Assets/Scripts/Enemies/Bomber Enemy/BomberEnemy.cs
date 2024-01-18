@@ -10,9 +10,7 @@ public class BomberEnemy : MonoBehaviour
     public float speed = 2.0f;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    float fireRate = 0.25f;
 
-    float nextFireTime;
 
     private float minX, maxX, minY, maxY;
 
@@ -50,14 +48,7 @@ public class BomberEnemy : MonoBehaviour
             playerLife.LoseHealth(1);
         }
     } //Daño a jugador
-    //private void Update()
-    //{
-    //    if (Time.time >= nextFireTime)
-    //    {
-    //        Shoot();
-    //        nextFireTime = Time.time + 1f / fireRate; // Establece el tiempo del próximo disparo.
-    //    }
-    //}
+
     IEnumerator Shoot()
     {
         while (true)
