@@ -10,19 +10,12 @@ public class EnemyLife : MonoBehaviour
     public int scoreValue = 10;
     Score score;
 
+    [System.Obsolete]
     void Start()
     {
         score = FindObjectOfType<Score>();
     }
 
-    private void Update()
-    {
-        if (hp <= 0)
-        {
-            Destroy(gameObject);
-            Instantiate(explotion, transform.position, Quaternion.identity);
-        }
-    }
     void OnDestroy()
     {
         if (score != null)
@@ -34,5 +27,10 @@ public class EnemyLife : MonoBehaviour
     public void LoseHealth(int health)
     {
         hp -= health;
+        if (hp <= 0)
+        {
+            Instantiate(explotion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }
