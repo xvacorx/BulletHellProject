@@ -19,7 +19,7 @@ public class PlayerShooting : MonoBehaviour
 
         transform.up = shootDirection;
 
-        if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
+        if (Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + 1f / fireRate; // Establece el tiempo del próximo disparo.

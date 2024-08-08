@@ -17,13 +17,13 @@ public class Nuke : MonoBehaviour
 
     private void Update()
     {
-            Vector3 playerPosition = player.position;
-            Vector3 direction = playerPosition - transform.position;
-            direction.z = 0;
+        Vector3 playerPosition = player.position;
+        Vector3 direction = playerPosition - transform.position;
+        direction.z = 0;
 
-            direction.Normalize();
+        direction.Normalize();
 
-            transform.position += -direction * speed * Time.deltaTime;
+        transform.position += -direction * speed * Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -44,7 +44,8 @@ public class Nuke : MonoBehaviour
                 GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag(tagToDestroy);
                 foreach (GameObject obj in objectsToDestroy)
                 {
-                    Destroy(obj);
+                    EnemyLife enemyHp = obj.GetComponent<EnemyLife>();
+                    enemyHp.LoseHealth(500);
                 }
             }
 

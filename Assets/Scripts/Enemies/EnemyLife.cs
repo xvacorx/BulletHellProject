@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,20 +10,15 @@ public class EnemyLife : MonoBehaviour
     public int hp = 1;
     public int scoreValue = 10;
     Score score;
+    AudioSource audioSource;
 
+    [System.Obsolete]
     void Start()
     {
         score = FindObjectOfType<Score>();
+        audioSource = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-        if (hp <= 0)
-        {
-            Destroy(gameObject);
-            Instantiate(explotion, transform.position, Quaternion.identity);
-        }
-    }
     void OnDestroy()
     {
         if (score != null)
@@ -33,6 +29,16 @@ public class EnemyLife : MonoBehaviour
 
     public void LoseHealth(int health)
     {
+        
         hp -= health;
+        if (hp <= 0)
+        {
+            Instantiate(explotion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else
+        {
+            audioSource.Play();
+        }
     }
 }
