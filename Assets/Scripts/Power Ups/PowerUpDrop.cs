@@ -6,6 +6,7 @@ public class PowerUpDrop : MonoBehaviour
 
     public float dropProbability = 0.2f;
 
+    [System.Obsolete]
     void Start()
     {
         powerUpManager = FindObjectOfType<PowerUpManager>();

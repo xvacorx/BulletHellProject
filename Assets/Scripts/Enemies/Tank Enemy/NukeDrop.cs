@@ -8,6 +8,7 @@ public class NukeDrop : MonoBehaviour
 
     public float dropProbability = 0.5f;
 
+    [System.Obsolete]
     void Start()
     {
         powerUpManager = FindObjectOfType<PowerUpManager>();

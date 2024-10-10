@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4245931232910148557}
   - component: {fileID: 2092744002397885498}
   - component: {fileID: -8947370492488677710}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -171,6 +171,7 @@ MonoBehaviour:
   shooting: {fileID: 2092744002397885498}
   gameController: {fileID: 0}
   life: {fileID: 0}
+  hitEffect: {fileID: 8148751011451318862, guid: cc52dfbefc7455e4abaab373348c86f9, type: 3}
 --- !u!1 &4245931233426473811
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,9 +182,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4245931233426473810}
   - component: {fileID: 4245931233426473809}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,9 +267,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2006913892580349180}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

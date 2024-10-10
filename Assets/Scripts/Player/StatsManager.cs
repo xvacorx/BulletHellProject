@@ -7,6 +7,7 @@ public class StatsManager : MonoBehaviour
     [SerializeField] PlayerShooting shooting;
     [SerializeField] GameManager gameController;
     [SerializeField] Lives life;
+    [SerializeField] GameObject hitEffect;
 
     int hp;
 
@@ -33,6 +34,8 @@ public class StatsManager : MonoBehaviour
     {
         hp -= health;
         life.LoseLife(health);
+        GameObject hit = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Destroy(hit, 1f);
     } //Perder vida
 
     public void AddAttackSpeed(float speed)
